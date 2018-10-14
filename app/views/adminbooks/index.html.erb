@@ -1,0 +1,7 @@
+<h1>Admin Books Index</h1>
+
+<% @books.each do |book| %>
+<p>Title: <%= book.title %></p>
+<p>Author: <%= book.author.name %>
+<p>Price: $<%= book.price %></p>
+<% end %>
