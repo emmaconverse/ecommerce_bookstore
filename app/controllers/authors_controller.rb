@@ -1,4 +1,5 @@
 class AuthorsController < ApplicationController
+ attr_accessible :name
   def index
     @authors = Author.all
   end
