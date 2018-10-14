@@ -1,0 +1,9 @@
+<h1>Admin Books Index</h1>
+
+<% @books.each do |book| %>
+<h3>Title: <%= book.title %></h3>
+<p>Author: <%= book.author.name %>
+<p>Price: $<%= book.price %></p>
+<%= link_to "Edit", edit_admin_book_path(book) %>
+<%= link_to "Delete", admin_book_path(book), method: :delete%>
+<% end %>

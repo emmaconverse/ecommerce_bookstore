@@ -1,0 +1,2 @@
+class AdminbooksController < ApplicationController
+end
