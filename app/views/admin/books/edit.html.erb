@@ -1,0 +1,12 @@
+<h1>Create a New Book</h1>
+
+
+<%= form_for ([:admin, @book]) do |f| %>
+  <p>Title: <%= f.text_field :title %></p>
+  <p>Description: <%= f.text_field :description %></p>
+  <p>Price: <%= f.text_field :price %></p>
+  <%= f.fields_for :author_attributes do |author| %>
+      <p>Author: <%= author.text_field :name %></p>
+  <% end %>
+  <%= f.submit "Create" %>
+<% end %>

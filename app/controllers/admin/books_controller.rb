@@ -16,22 +16,27 @@ before_action :authenticate_user!
 
     def create
       @book = Book.create(books_params)
-      # Book.create(title: params[:book][:title], description: params[:book][:description], price: params[:book][:price])
-      # Author.create(name: params[:authors][:name])
       @book.save
       redirect_to admin_books_path
     end
 
     def edit
+      @book = Book.find(params[:id])
     end
 
     def update
+    @book = Book.find(params[:id])
+    @book.update(books_params)
+    redirect_to admin_books_path
     end
 
     def delete
     end
 
     def destroy
+      @book = Book.find(params[:id])
+      @book.destroy
+      redirect_to admin_books_path
     end
 
 private
