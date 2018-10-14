@@ -20,6 +20,7 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+# heroku stuff
 production:
   adapter: postgresql
   encoding: unicode
