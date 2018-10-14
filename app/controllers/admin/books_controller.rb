@@ -11,15 +11,15 @@ before_action :authenticate_user!
 
     def new
       @book = Book.new
+      @book.build_author
     end
 
     def create
-      Book.create(book_params)
-
-      # if @book.save
+      @book = Book.create(books_params)
+      # Book.create(title: params[:book][:title], description: params[:book][:description], price: params[:book][:price])
+      # Author.create(name: params[:authors][:name])
+      @book.save
       redirect_to admin_books_path
-      # else render 'new'
-      # end
     end
 
     def edit
@@ -31,13 +31,11 @@ before_action :authenticate_user!
     def delete
     end
 
-    def destrouy
+    def destroy
     end
 
 private
-  def book_params
-    params.require(:book).permit(:title, :description, :price)
-    # params.require(:authors).permit(:name)
+  def books_params
+    params.require(:book).permit(:title, :description, :price, author_attributes: [:name])
   end
-  # end
 end

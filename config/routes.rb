@@ -7,8 +7,7 @@ resources :authors, only: [:index, :show]
 resources :home, only: [:index]
 resources :sales
 namespace :admin do
-  # not actually sure what root does?
-  root 'books#index'
+  root 'admin#books#index'
   resources :books, :authors
 end
   devise_for :users
