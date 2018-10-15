@@ -17,8 +17,12 @@ before_action :authenticate_admin!
 
     def create
       @book = Book.create(books_params)
-      @book.save
-      redirect_to admin_books_path
+
+      if @book.save
+        redirect_to admin_books_path
+      else
+        render :create
+
     end
 
     def edit
@@ -28,7 +32,10 @@ before_action :authenticate_admin!
     def update
     @book = Book.find(params[:id])
     @book.update(books_params)
-    redirect_to admin_books_path
+    if @book.save
+      redirect_to admin_books_path
+    else
+      render :edit
     end
 
     def delete
