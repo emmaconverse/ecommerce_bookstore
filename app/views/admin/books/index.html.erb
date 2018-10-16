@@ -4,7 +4,9 @@
     <div class="c-input">
       <div class="book-index-container">
         <!-- <h3 class="c-title c-title--small">Title: </h3> -->
-        <h2 class="c-title"><%= book.title %></h2>
+        <h2 class="c-title">
+          <%= link_to book.title, admin_book_path(book) %>
+        </h2>
         <%= image_tag book.avatar.variant(resize: "75x75") %>
         <h3 class="c-title c-title--small">Author: </h3>
         <p class="c-paragraph c-paragraph--small"> <%= book.author.name %></p>
@@ -12,7 +14,7 @@
         <p class="c-paragraph c-paragraph--small">$<%= book.price %></p>
 
         <%= link_to "Edit", edit_admin_book_path(book) %>
-        <%= link_to "Delete", admin_book_path(book), method: :delete%>
+        <%= link_to "Delete", admin_books_path, method: :delete%>
 
       </div>
     </div>
