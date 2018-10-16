@@ -17,8 +17,13 @@ before_action :authenticate_admin!
 
     def create
       @book = Book.create(books_params)
-      @book.save
-      redirect_to admin_books_path
+
+      if @book.save
+        redirect_to admin_books_path
+      else
+        render :create
+      end
+
     end
 
     def edit
@@ -26,9 +31,13 @@ before_action :authenticate_admin!
     end
 
     def update
-    @book = Book.find(params[:id])
-    @book.update(books_params)
-    redirect_to admin_books_path
+      @book = Book.find(params[:id])
+      @book.update(books_params)
+      if @book.save
+        redirect_to admin_books_path
+      else
+        render :edit
+      end
     end
 
     def delete
@@ -42,7 +51,7 @@ before_action :authenticate_admin!
 
 private
   def books_params
-    params.require(:book).permit(:title, :description, :price, author_attributes: [:name])
+    params.require(:book).permit(:title, :description, :price, :avatar, author_attributes: [:name])
   end
 
   def authenticate_admin!

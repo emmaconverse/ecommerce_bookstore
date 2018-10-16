@@ -2,6 +2,7 @@
 
 
 <%= form_for ([:admin, @book]) do |f| %>
+  <p>Thumbnail: <%= f.file_field :avatar %> </p>
   <p>Title: <%= f.text_field :title %></p>
   <p>Description: <%= f.text_field :description %></p>
   <p>Price: <%= f.text_field :price %></p>

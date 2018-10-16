@@ -1,8 +1,11 @@
 <h1>Admin Books Index</h1>
 
 <% @books.each do |book| %>
-<h3>Title: <%= book.title %></h3>
-<p>Author: <%= book.author.name %>
+<div class="book-index-container">
+  <h3>Title: <%= book.title %></h3>
+  <%= image_tag book.avatar.variant(resize: "75x75") %>
+  <p>Author: <%= book.author.name %></p>
+</div>
 <p>Price: $<%= book.price %></p>
 <%= link_to "Edit", edit_admin_book_path(book) %>
 <%= link_to "Delete", admin_book_path(book), method: :delete%>

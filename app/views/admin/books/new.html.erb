@@ -1,11 +1,26 @@
 <h1>Create a New Book</h1>
 
-<%= form_for ([:admin, @book]) do |f| %>
-  <p>Title: <%= f.text_field :title %></p>
-  <p>Description: <%= f.text_field :description %></p>
-  <p>Price: <%= f.text_field :price %></p>
-  <%= f.fields_for :author_attributes do |author| %>
-      <p>Author: <%= author.text_field :name %></p>
+<div class="c-section">
+  <%= form_for ([:admin, @book]) do |f| %>
+    <div class="c-input">
+      <p class="c-input_label">Thumbnail: <div class="c-input_file"><%= f.file_field :avatar %></div> </p>
+    </div>
+    <div class="c-input">
+      <p class="c-input_label">Title: <div class="c-input_text"><%= f.text_field :title %></div></p>
+    </div>
+    <div class="c-input">
+      <p class="c-input_label">Description: <div class="c-input_text"><%= f.text_field :description %></div></p>
+    </div>
+    <div class="c-input">
+      <p class="c-input_label">Price: <div class="c-input_text"><%= f.text_field :price %></div></p>
+    </div>
+    <%= f.fields_for :author_attributes do |author| %>
+        <div class="c-input">
+          <p class="c-input_label">Author: <div class="c-input_text"><%= author.text_field :name %></div></p>
+        </div>
+    <% end %>
+    <div class="c-input">
+      <%= f.submit "Create" %>
   <% end %>
-  <%= f.submit "Create" %>
-<% end %>
+    </div>
+</div>
