@@ -1,12 +1,20 @@
-<h1>Admin Books Index</h1>
+<div class="c-section">
+  <h1 class="c-title c-title--large">Admin Books Index</h1>
+  <% @books.each do |book| %>
+    <div class="c-input">
+      <div class="book-index-container">
+        <!-- <h3 class="c-title c-title--small">Title: </h3> -->
+        <h2 class="c-title"><%= book.title %></h2>
+        <%= image_tag book.avatar.variant(resize: "75x75") %>
+        <h3 class="c-title c-title--small">Author: </h3>
+        <p class="c-paragraph c-paragraph--small"> <%= book.author.name %></p>
+        <h3 class="c-title c-title--small">Price: </h3>
+        <p class="c-paragraph c-paragraph--small">$<%= book.price %></p>
 
-<% @books.each do |book| %>
-<div class="book-index-container">
-  <h3>Title: <%= book.title %></h3>
-  <%= image_tag book.avatar.variant(resize: "75x75") %>
-  <p>Author: <%= book.author.name %></p>
+        <%= link_to "Edit", edit_admin_book_path(book) %>
+        <%= link_to "Delete", admin_book_path(book), method: :delete%>
+
+      </div>
+    </div>
+  <% end %>
 </div>
-<p>Price: $<%= book.price %></p>
-<%= link_to "Edit", edit_admin_book_path(book) %>
-<%= link_to "Delete", admin_book_path(book), method: :delete%>
-<% end %>
