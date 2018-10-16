@@ -1,5 +1,5 @@
 <div class="c-section">
-  <%= link_to "Back to Books", books_path %>
+  <%= link_to "Back to Books", root_path %>
     <div class="c-input">
       <div class="book-index-container">
         <!-- <h3 class="c-title c-title--small">Title: </h3> -->
@@ -12,5 +12,6 @@
         <h3 class="c-title c-title--small">Price: </h3>
         <p class="c-paragraph c-paragraph--small">$<%= @book.price %></p>
       </div>
+      <%= link_to "Buy This Book Now", new_book_sale_path(@book), class: "c-button c-button--small c-button--focal"%>
     </div>
 </div>
