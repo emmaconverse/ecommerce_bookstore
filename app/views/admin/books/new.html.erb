@@ -1,6 +1,5 @@
-<h1>Create a New Book</h1>
-
 <div class="c-section">
+  <h1 class="c-title">Create a New Book</h1>
   <%= form_for ([:admin, @book]) do |f| %>
     <div class="c-input">
       <p class="c-input_label">Thumbnail: <div class="c-input_file"><%= f.file_field :avatar %></div> </p>
@@ -21,6 +20,10 @@
     <% end %>
     <div class="c-input">
       <%= f.submit "Create" %>
-  <% end %>
     </div>
+  <% end %>
+  <div class="c-section">
+    <%= link_to "Cancel", admin_books_path %>
+  </div>
+
 </div>

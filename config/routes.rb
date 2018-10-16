@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 get 'styleguide', to: "styleguides#styleguide"
-get 'home/index'
+# get 'home', to: "books#index"
 # resources :adminbooks
 resources :books, only: [:index, :show]
 resources :authors, only: [:index, :show]
