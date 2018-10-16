@@ -3,7 +3,9 @@
   <% @books.each do |book| %>
     <div class="c-input">
       <div class="book-index-container">
-        <h2 class="c-title"><%= book.title %></h2>
+        <h2 class="c-title">
+          <%= link_to book.title, book_path(book) %>
+        </h2>
         <%= image_tag book.avatar.variant(resize: "75x75") %>
         <h3 class="c-title c-title--small">Author: </h3>
         <p class="c-paragraph c-paragraph--small"> <%= book.author.name %></p>
