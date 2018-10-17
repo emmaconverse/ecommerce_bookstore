@@ -19,11 +19,9 @@
         </div>
     <% end %>
     <div class="c-input">
-      <%= f.submit "Update" %>
+      <%= f.submit "Update", class: "c-button c-button--small" %>
     </div>
   <% end %>
   <div class="c-section">
-    <%= link_to "Cancel", admin_books_path %>
-  </div>
-
+    <%= link_to "Cancel", admin_books_path, class: "c-button c-button--warning" %>
 </div>

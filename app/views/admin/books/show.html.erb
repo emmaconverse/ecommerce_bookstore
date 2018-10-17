@@ -13,8 +13,8 @@
         <h3 class="c-title c-title--small">Price: </h3>
         <p class="c-paragraph c-paragraph--small">$<%= @book.price %></p>
 
-        <%= link_to "Edit", edit_admin_book_path %>
-        <%= link_to "Delete", admin_books_path, method: :delete%>
+        <%= link_to "Edit", edit_admin_book_path, class: "c-button c-button--small" %>
+        <%= link_to "Delete", admin_books_path, method: :delete, class:"c-button c-button--warning"%>
 
       </div>
     </div>
