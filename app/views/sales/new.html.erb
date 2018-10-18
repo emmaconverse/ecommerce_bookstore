@@ -1,0 +1,11 @@
+<div class="c-section">
+  <h1 class="c-title c-title--large">Checkout Page</h1>
+</div>
+<%= form_for [@book, @sale], html: { id: "payment-form" } do |f| %>
+  <div id="card-errors"><%= @card_errors %></div>
+  <%= f.hidden_field :stripe_token %>
+  <div id="card-element">
+    <!-- inject Stripe card form -->
+  </div>
+  <%= f.submit %>
+<% end %>

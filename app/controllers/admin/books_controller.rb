@@ -16,6 +16,7 @@ before_action :authenticate_admin!
     end
 
     def create
+      # find or create by?
       @book = Book.create(books_params)
 
       if @book.save
