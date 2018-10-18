@@ -34,14 +34,14 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "Update" %>
+      <%= f.submit "Update", class: "c-button c-button--focal" %>
     </div>
   <% end %>
 
   <h2 class="c-title c-title--warn">Cancel my account</h2>
 
-  <p class="c-paragraph">Unhappy with your experience? Want to cancel your account?  <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  <p class="c-paragraph">Unhappy with your experience? Want to cancel your account?  <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "c-button c-button--warning" %></p>
 
-  <%= link_to "Back", :back %>
+  <%= link_to "Back", :back, class: "c-button" %>
 
 </div>

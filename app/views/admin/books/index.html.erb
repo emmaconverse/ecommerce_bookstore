@@ -3,18 +3,15 @@
   <% @books.each do |book| %>
     <div class="c-input">
       <div class="book-index-container">
-        <!-- <h3 class="c-title c-title--small">Title: </h3> -->
-        <h2 class="c-title">
-          <%= link_to book.title, admin_book_path(book) %>
-        </h2>
+        <%= link_to book.title, admin_book_path(book), class: "c-title" %>
         <%= image_tag book.avatar.variant(resize: "75x75") %>
         <h3 class="c-title c-title--small">Author: </h3>
         <p class="c-paragraph c-paragraph--small"> <%= book.author.name %></p>
         <h3 class="c-title c-title--small">Price: </h3>
         <p class="c-paragraph c-paragraph--small">$<%= book.price %></p>
 
-        <%= link_to "Edit", edit_admin_book_path(book) %>
-        <%= link_to "Delete", admin_books_path, method: :delete%>
+        <%= link_to "Edit", edit_admin_book_path(book), class: "c-button" %>
+        <%= link_to "Delete", admin_books_path, method: :delete, class: "c-button c-button--warning"%>
 
       </div>
     </div>
