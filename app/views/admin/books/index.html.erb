@@ -11,7 +11,7 @@
         <p class="c-paragraph c-paragraph--small">$<%= book.price %></p>
 
         <%= link_to "Edit", edit_admin_book_path(book), class: "c-button" %>
-        <%= link_to "Delete", admin_books_path, method: :delete, class: "c-button c-button--warning"%>
+        <%= link_to "Delete", admin_book_path(book), method: :delete, class: "c-button c-button--warning"%>
 
       </div>
     </div>
