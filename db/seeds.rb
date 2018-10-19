@@ -13,8 +13,8 @@ ActiveRecord::Base.transaction do
 
 
   books = [
-    { title: "All About Dogs", author_id: 1, description: "A dog is a mammal in the order Carnivora. Dogs were domesticated from wolves as recently as 15,000 years ago.", price: 15.99, image: "/app/assets/images/doge.png"},
-    { title: "Dogs Are Life", author_id: 1, description: "It is estimated that for more than 12,000 years the dog has lived with humans as a hunting companion, protector and friend. A dog is one of the most popular pets in the world and has been referred to as ‘mans best friend’.", price: 25.99, image: "/app/assets/images/doge.png"}
+    { title: "All About Dogs", author_id: 1, description: "A dog is a mammal in the order Carnivora. Dogs were domesticated from wolves as recently as 15,000 years ago.", price: 15.99, image: "/public/doge.png"},
+    { title: "Dogs Are Life", author_id: 1, description: "It is estimated that for more than 12,000 years the dog has lived with humans as a hunting companion, protector and friend. A dog is one of the most popular pets in the world and has been referred to as ‘mans best friend’.", price: 25.99, image: "/public/doge.png"}
     ]
 
   books.each do |b|
