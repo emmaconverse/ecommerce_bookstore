@@ -52,7 +52,7 @@ before_action :authenticate_admin!
 
 private
   def books_params
-    params.require(:book).permit(:title, :description, :price, :avatar, author_attributes: [:name])
+    params.require(:book).permit(:title, :description, :price, :book_cover, author_attributes: [:name])
   end
 
   def authenticate_admin!

@@ -20,7 +20,7 @@ gem 'stripe'
 # devise
 gem 'devise'
 
-# image processing with avatar.variant
+# image processing with book_cover.variant
 gem 'image_processing', '~> 1.2'
 
 # Use CoffeeScript for .coffee assets and views

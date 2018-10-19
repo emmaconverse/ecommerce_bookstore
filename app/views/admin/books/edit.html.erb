@@ -2,7 +2,7 @@
   <h1 class="c-title">Edit Book</h1>
   <%= form_for ([:admin, @book]) do |f| %>
     <div class="c-input">
-      <p class="c-input_label">Thumbnail: <div class="c-input_file"><%= f.file_field :avatar %></div> </p>
+      <p class="c-input_label">Thumbnail: <div class="c-input_file"><%= f.file_field :book_cover %></div> </p>
     </div>
     <div class="c-input">
       <p class="c-input_label">Title: <div class="c-input_text"><%= f.text_field :title %></div></p>
