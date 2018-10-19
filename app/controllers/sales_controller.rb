@@ -15,17 +15,17 @@ class SalesController < ApplicationController
   end
 
   def create
-    begin
+    # begin
       stripe_token = sales_params[:stripe_token]
       stripe_charge = StripeServices::CreateCharge.call(@book, current_user, stripe_token)
       Sale.create(book: @book, user: current_user, stripe_charge_id: stripe_charge.id)
       PurchaseMailer.with(user: current_user).thank_you.deliver_later
       redirect_to sales_path
-    rescue Stripe::InvalidRequestError, Stripe::CardError => error
-      @sale = Sale.new
-      @card_errors = error.message
-      render :new
-    end
+    # rescue Stripe::InvalidRequestError, Stripe::CardError => error
+      # @sale = Sale.new
+      # @card_errors = error.message
+      # render :new
+    # end
   end
 
 private
