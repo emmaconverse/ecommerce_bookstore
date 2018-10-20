@@ -4,7 +4,6 @@
     <title>Stay Booked</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <script src="https://js.stripe.com/v3/"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -13,15 +12,21 @@
     <header>
       <div class="c-section">
         <ul class="c-navigation">
-          <li class="c-navigation__item">
-            <%= link_to "Books", root_path, class: "c-navigation__link c-navigation__link--active" %>
-          </li>
+          <% if current_user && current_user.admin? %>
+            <li class="c-navigation__item">
+              <%= link_to "Books", admin_books_path, class: "c-navigation__link c-navigation__link--active" %>
+            </li>
+          <% else %>
+            <li class="c-navigation__item">
+              <%= link_to "Books", root_path, class: "c-navigation__link c-navigation__link--active" %>
+            </li>
+          <% end %>
           <% if current_user %>
             <li class="c-navigation__item c-navigation__item--push-right">
-              Logged in as <%= current_user.email %>
+              Hello <%= current_user.name %>!
             </li>
             <li class="c-navigation__link">
-              <%= link_to "Log Out", destroy_user_session_path %>
+              <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
             </li>
           <% else %>
             <li class="c-navigation__item c-navigation__item--push-right">
