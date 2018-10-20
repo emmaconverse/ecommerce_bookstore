@@ -1,6 +1,13 @@
-<h1>Author</h1>
+author show
 
-<p>Name: <%= @author.name %></p>
-<% @author.books.each do |book| %>
-  <p><%= book.title %></p>
-<% end %>
+<div class="c-section">
+  <div class="c-input">
+    <div class="book-index-container">
+      <h2 class="c-title">
+        <%= @author.name %>
+      </h2>
+      <h3 class="c-title c-title--small">
+        Books:
+      </h3>
+    </div>
+</div>

@@ -1,5 +1,10 @@
-<h1>Authors</h1>
-
-<% @authors.each do |author| %>
-<p>Name: <%= author.name %></p>
-<% end %>
+<div class="c-section">
+  <h1 class="c-title c-title--large">Authors</h1>
+  <% @authors.each do |author| %>
+    <div class="c-input">
+      <div class="book-index-container">
+        <%= link_to author.name, author_path(author), class: "c-title" %>
+      </div>
+    </div>
+  <% end %>
+</div>
