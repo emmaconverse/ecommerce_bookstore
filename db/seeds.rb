@@ -3,8 +3,10 @@
     {name: "Miss Dalek"},
     {name: "Penny Lane"},
     {name: "Zoe Hunts"},
-    {name: "Lucy pants"},
+    {name: "Lucy Pants"},
   ]
+
+  # must create these users as authors in console for them to work in console/testing.
 
   authors.each do |author|
     Author.create!(name: author[:name])
@@ -22,11 +24,8 @@
   ]
 
   books.each do |book_attrs|
-
     book = Book.new(book_attrs)
     book.author = Author.all.sample
     book.book_cover.attach(io: File.open(Rails.root.join('public/doge.png')), filename:"doge.png")
     book.save!
-
   end
-# book.book_cover.attached file.open
