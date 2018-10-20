@@ -20,6 +20,18 @@
     { title: "Dogs Are Life",
       description: "It is estimated that for more than 12,000 years the dog has lived with humans as a hunting companion, protector and friend. A dog is one of the most popular pets in the world and has been referred to as ‘mans best friend’.",
       price: 25.99
+    },
+    { title: "Cats are Better",
+      description: "Cats and Stuff’.",
+      price: 25.99
+    },
+    { title: "Pets Rule the World",
+      description: "Pets Give us Life.",
+      price: 25.99
+    },
+    { title: "Paws Save the World Yet Again",
+      description: "Why do we put our faith in humans?",
+      price: 25.99
     }
   ]
 
