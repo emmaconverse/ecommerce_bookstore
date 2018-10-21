@@ -15,6 +15,7 @@ resources :authors, only: [:index, :show]
 
 resources :home, only: [:index]
 
+resources :profile, except: [:index]
 
 # namespace :admin do
 #   root 'admin#books#index'
