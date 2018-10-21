@@ -1,12 +1,16 @@
 class SalesController < ApplicationController
   before_action :authenticate_user!
-  before_action :load_book!, except: [:index]
+  before_action :load_book!, except: [:index, :show]
 
 
   def index
     @sales = Sale.where(user: current_user)
     # these are the same
     @sales = current_user.sales
+  end
+
+  def show
+    @sale = Sale.find(params[:id])
   end
 
   def new

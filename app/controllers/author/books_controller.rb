@@ -1,5 +1,5 @@
 class Admin::BooksController < ApplicationController
-  before_action :authenticate_admin!
+  before_action :authenticate_author!
 
     def index
       @books = Book.all
@@ -54,8 +54,8 @@ private
     params.require(:book).permit(:title, :description, :price, :book_cover, author_attributes: [:name])
   end
 
-  def authenticate_admin!
+  def authenticate_author!
     authenticate_user!
-    redirect_to books_path, status: :forbidden unless current_user.admin?
+    redirect_to books_path, status: :forbidden unless current_user.author?
   end
 end

@@ -1,0 +1,16 @@
+<div class="c-section">
+  <h1 class="c-title c-title--large">My Purchased Book</h1>
+</div>
+<div class="c-section">
+    <div class="c-input">
+      <div class="book-index-container">
+        <!-- <h3 class="c-title c-title--small">Title: </h3> -->
+        <h2 class="c-title"><%= @sale.book.title %></h2>
+        <%= image_tag @sale.book.book_cover.variant(resize: "75x75") %>
+        <h3 class="c-title c-title--small">Author: </h3>
+        <p class="c-paragraph c-paragraph--small"> <%= @sale.book.author.name %></p>
+        <h3 class="c-title c-title--small">Purchased for: </h3>
+        <p class="c-paragraph c-paragraph--small">$<%= @sale.book.price %></p>
+      </div>
+    </div>
+</div>
