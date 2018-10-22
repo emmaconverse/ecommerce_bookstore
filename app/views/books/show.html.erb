@@ -5,7 +5,7 @@
         <h2 class="c-title">
           <%= @book.title %>
         </h2>
-        <%= image_tag @attachment.variant(resize: "75x75") %>
+        <%= image_tag @attachment.variant(resize: "75x75") if @attachment.attached? %>
         <h3 class="c-title c-title--small">Author: </h3>
         <p class="c-paragraph c-paragraph--small"> <%= @book.author.name %></p>
         <h3 class="c-title c-title--small">Price: </h3>
