@@ -14,7 +14,7 @@
         <ul class="c-navigation">
           <% if current_user && current_user.admin? %>
             <li class="c-navigation__item">
-              <%= link_to "Books", books_path, class: "c-navigation__link c-navigation__link--active" %>
+              <%= link_to "Books", admin_books_path, class: "c-navigation__link c-navigation__link--active" %>
             </li>
           <% else %>
             <li class="c-navigation__item">
