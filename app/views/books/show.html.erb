@@ -11,7 +11,10 @@
         <h3 class="c-title c-title--small">Price: </h3>
         <p class="c-paragraph c-paragraph--small">$<%= @book.price %></p>
       </div>
+      <% if @book.author.name != current_user.name %>
       <%= link_to "Buy This Book Now", new_book_sale_path(@book), class: "c-button c-button--small c-button--focal"%>
+        <% else %>
+      <% end %>
       <% if current_user.admin? %>
         <%= link_to "Edit", edit_book_path, class: "c-button" %>
         <%= link_to "Delete", book_path, method: :delete, class: "c-button c-button--warning"%>
