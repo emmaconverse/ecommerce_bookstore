@@ -17,14 +17,13 @@ class BooksController < ApplicationController
     end
 
     def create
-      # find or create by?
       @book = Book.new(books_params)
-      if current_user && current_user.author?
+      unless current_user.admin?
         @book.author = current_user
       end
       if @book.save
         redirect_to books_path
-      else
+        else
         render :new
       end
     end
