@@ -1,4 +1,4 @@
-class Admin::BooksController < ApplicationController
+class Author::BooksController < ApplicationController
   before_action :authenticate_author!
 
     def index
@@ -11,18 +11,18 @@ class Admin::BooksController < ApplicationController
 
     def new
       @book = Book.new
-      @book.build_author
+      # @book.build_author not necessary here
     end
 
     def create
       # find or create by?
-      @book = Book.create(books_params)
+      @book = Book.new(books_params)
       unless current_user.admin?
         @book.author = current_user
       end
 
       if @book.save
-        redirect_to admin_books_path
+        redirect_to root_path
       else
         render :new
       end
@@ -54,7 +54,7 @@ class Admin::BooksController < ApplicationController
 
 private
   def books_params
-    params.require(:book).permit(:title, :description, :price, :book_cover, author_attributes: [:name])
+    params.require(:book).permit(:title, :description, :price, :book_cover)
   end
 
   def authenticate_author!

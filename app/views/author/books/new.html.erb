@@ -1,6 +1,6 @@
 <div class="c-section">
   <h1 class="c-title">Create a New Book</h1>
-  <%= form_for ([:admin, @book]) do |f| %>
+  <%= form_for ([:author, @book]) do |f| %>
     <div class="c-input">
       <p class="c-input_label">Thumbnail: <div class="c-input_file"><%= f.file_field :book_cover %></div> </p>
     </div>
@@ -13,19 +13,12 @@
     <div class="c-input">
       <p class="c-input_label">Price: <div class="c-input_text"><%= f.text_field :price %></div></p>
     </div>
-    <div class="c-input">
-      <p class="c-input_label">Author:
-        <div class="c-input_text">
-          <%= f.collection_select(:author_id, User.where(author:true).order(name: :asc), :id, :name, { prompt: 'Select Author' } ) %>
-        </div>
-      </p>
-    </div>
+
     <div class="c-input">
       <%= f.submit "Create", class: "c-button c-button--small" %>
     </div>
   <% end %>
   <div class="c-section">
-    <%= link_to "Cancel", admin_books_path, class:"c-button c-button--warning" %>
+    <%= link_to "Cancel", root_path, class:"c-button c-button--warning" %>
   </div>
-
 </div>
