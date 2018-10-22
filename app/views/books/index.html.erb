@@ -3,9 +3,8 @@
   <% @books.each do |book| %>
     <div class="c-input">
       <div class="book-index-container">
-        <%= image_tag book.book_cover.variant(resize: "75x75") if book.book_cover.attached? %>
         <%= link_to book.title, book_path(book), class: "c-title" %>
-        <%= image_tag book.book_cover.variant(resize: "75x75") %>
+        <%= image_tag book.book_cover.variant(resize: "75x75") if book.book_cover.attached? %>
         <h3 class="c-title c-title--small">Author: </h3>
         <p class="c-paragraph c-paragraph--small"> <%= book.author.name %></p>
         <h3 class="c-title c-title--small">Price: </h3>

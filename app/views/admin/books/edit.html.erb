@@ -13,7 +13,7 @@
     <div class="c-input">
       <p class="c-input_label">Price: <div class="c-input_text"><%= f.text_field :price %></div></p>
     </div>
-    <%= f.fields_for :author_attributes do |author| %>
+    <%= f.fields_for :author do |author| %>
         <div class="c-input">
           <p class="c-input_label">Author: <div class="c-input_text"><%= author.text_field :name %></div></p>
         </div>

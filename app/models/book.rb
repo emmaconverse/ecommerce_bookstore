@@ -3,8 +3,6 @@ class Book < ApplicationRecord
 
   belongs_to :author, class_name: "User"
 
-  # accepts_nested_attributes_for :author, class_name: "User"
-
   has_many :sales
   has_many :users, through: :sales
 
