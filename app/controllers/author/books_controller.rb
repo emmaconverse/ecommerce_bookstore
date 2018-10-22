@@ -17,11 +17,14 @@ class Admin::BooksController < ApplicationController
     def create
       # find or create by?
       @book = Book.create(books_params)
+      unless current_user.admin?
+        @book.author = current_user
+      end
 
       if @book.save
         redirect_to admin_books_path
       else
-        render :create
+        render :new
       end
 
     end
