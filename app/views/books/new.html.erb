@@ -15,7 +15,7 @@
       <p class="c-input_label">Price: <div class="c-input_text"><%= f.text_field :price %></div></p>
     </div>
     <div class="c-input">
-      <% if current_user && current_user.author? %>
+      <% unless current_user.admin? %>
         <h3 class="c-title c-title--small">Author: </h3>
         <p class="c-paragraph c-paragraph--small"> <%= current_user.name %></p>
       <% else %>
