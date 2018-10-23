@@ -1,3 +1,7 @@
+  <%= react_component("BooksIndex", {
+    books: Book.all
+  }) %>
+
 <div class="c-section">
   <h1 class="c-title c-title--large">Admin Books Index</h1>
   <% @books.each do |book| %>
