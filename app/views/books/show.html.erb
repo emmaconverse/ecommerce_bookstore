@@ -1,23 +1,15 @@
 <div class="c-section">
-    <div class="c-input">
-      <div class="book-index-container">
-        <!-- <h3 class="c-title c-title--small">Title: </h3> -->
-        <h2 class="c-title">
-          <%= @book.title %>
-        </h2>
-        <%= image_tag @book.book_cover.variant(resize: "75x75") if @book.book_cover.attached? %>
-        <h3 class="c-title c-title--small">Author: </h3>
-        <p class="c-paragraph c-paragraph--small"> <%= @book.author.name %></p>
-        <h3 class="c-title c-title--small">Price: </h3>
-        <p class="c-paragraph c-paragraph--small">$<%= @book.price %></p>
-      </div>
-      <% if @book.author.name != current_user.name %>
-      <%= link_to "Buy This Book Now", new_book_sale_path(@book), class: "c-button c-button--small c-button--focal"%>
-        <% else %>
-      <% end %>
-      <% if current_user.admin? %>
-        <%= link_to "Edit", edit_book_path, class: "c-button" %>
-        <%= link_to "Delete", book_path, method: :delete, class: "c-button c-button--warning"%>
-      <% end %>
+  <div class="c-input">
+    <div class="book-index-container">
+      <h2 class="c-title">
+        <%= @book.title %>
+      </h2>
+      <%= image_tag @book.book_cover.variant(resize: "75x75") if @book.book_cover.attached? %>
+      <h3 class="c-title c-title--small">Author: </h3>
+      <p class="c-paragraph c-paragraph--small"> <%= @book.author.name %></p>
+      <h3 class="c-title c-title--small">Price: </h3>
+      <p class="c-paragraph c-paragraph--small">$<%= @book.price %></p>
     </div>
+    <%= link_to "Buy This Book Now", new_book_sale_path(@book), class: "c-button c-button--small c-button--focal"%>
+  </div>
 </div>
