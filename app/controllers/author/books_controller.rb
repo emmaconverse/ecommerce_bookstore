@@ -11,11 +11,9 @@ class Author::BooksController < ApplicationController
 
     def new
       @book = Book.new
-      # @book.build_author not necessary here
     end
 
     def create
-      # find or create by?
       @book = Book.new(books_params)
       unless current_user.admin?
         @book.author = current_user
@@ -37,7 +35,7 @@ class Author::BooksController < ApplicationController
       @book = Book.find(params[:id])
       @book.update(books_params)
       if @book.save
-        redirect_to admin_books_path
+        redirect_to author_books_path
       else
         render :edit
       end

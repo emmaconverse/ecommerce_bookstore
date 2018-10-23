@@ -14,8 +14,8 @@
       <%= link_to "Buy This Book Now", new_book_sale_path(@book), class: "c-button c-button--small c-button--focal"%>
         <% else %>
       <% end %>
-      <% if current_user.admin? %>
-        <%= link_to "Edit", edit_book_path, class: "c-button" %>
+      <% if current_user.name == @book.author.name %>
+        <%= link_to "Edit", edit_author_book_path, class: "c-button" %>
         <%= link_to "Delete", book_path, method: :delete, class: "c-button c-button--warning"%>
       <% end %>
     </div>
