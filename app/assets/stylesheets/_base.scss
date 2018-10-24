@@ -78,3 +78,20 @@ footer {
   font-size: 90%;
   vertical-align: baseline;
 }
+
+.alert, .notice {
+  text-align: center;
+}
+
+.header-hero {
+  background-image: url("paul-schafer-787418-unsplash.jpg");
+  width: 100%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 300px;
+  vertical-align: middle;
+}
+
+.hero-caption {
+  height: inherit;
+}

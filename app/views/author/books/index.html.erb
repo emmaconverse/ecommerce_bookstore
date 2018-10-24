@@ -10,6 +10,10 @@
           <p class="c-paragraph c-paragraph--small"> <%= book.author.name %></p>
           <h3 class="c-title c-title--small">Price: </h3>
           <p class="c-paragraph c-paragraph--small">$<%= book.price %></p>
+          <% if book.sales.any? %>
+            <h3 class="c-title c-title--small">Number of sales: </h3>
+              <p class="c-paragraph c-paragraph--small"><%= book.sales.count %> </p>
+            <% end %>
 
           <%= link_to "Edit", edit_author_book_path(book), class: "c-button" %>
           <%= link_to "Delete", admin_book_path(book), method: :delete, class: "c-button c-button--warning"%>
@@ -19,3 +23,6 @@
       <% end %>
     <% end %>
   </div>
+
+
+  <!-- to see if it's been sold yet admin.books.find(51).sales -->

@@ -12,18 +12,32 @@
   </head>
   <body>
     <header>
+      <div class="header-hero">
+        <h1 class="c-title c-title--hero c-title--center">STAYBOOKED</h1>
+        <p class="hero-caption">Photo by Paul Schafer on Unsplash</p>
+
+    </div>
       <div class="c-section">
         <ul class="c-navigation">
           <% if current_user && current_user.admin? %>
             <li class="c-navigation__item">
-              <%= link_to "Books", admin_books_path, class: "c-navigation__link c-navigation__link--active" %>
+              <%= link_to "Manage Books", admin_books_path, class: "c-navigation__link c-navigation__link--active" %>
             </li>
-          <% else %>
             <li class="c-navigation__item">
               <%= link_to "Books", root_path, class: "c-navigation__link c-navigation__link--active" %>
             </li>
+            <li class="c-navigation__item">
+              <%= link_to "Create New Book", new_admin_book_path, class: "c-navigation__link c-navigation__link--active" %>
+            </li>
+          <% else %>
+            <li class="c-navigation__item">
+              <%= link_to "Home", root_path, class: "c-navigation__link c-navigation__link--active" %>
+            </li>
           <% end %>
           <% if current_user %>
+            <li class="c-navigation__item">
+              <%= link_to "Authors", authors_path, class: "c-navigation__link c-navigation__link--active" %>
+            </li>
             <li class="c-navigation__item c-navigation__item--push-right">
               Hello <%= current_user.name %>!
                <%= image_tag current_user.avatar.variant(resize: "35x35") if current_user.avatar.attached? %>
@@ -44,7 +58,7 @@
     <p class="alert"><%= alert %></p>
     <%= yield %>
     <footer>
-      <h6>Stay Booked</h6>
+      <h3>Stay Booked</h3>
     </footer>
   </body>
 </html>

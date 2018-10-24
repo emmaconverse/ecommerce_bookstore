@@ -1,43 +1,34 @@
-  authors = [
-    {name: "Sir Remy"},
-    {name: "Miss Dalek"},
-    {name: "Penny Lane"},
-    {name: "Zoe Hunts"},
-    {name: "Lucy Pants"},
-  ]
+15.times do
+  User.create ({
+    name: Faker::Name.name,
+    email: "#{SecureRandom.hex(3)}_#{Faker::Internet.email}",
+    password: SecureRandom.hex(10),
+    admin: false,
+    author: true
+  })
+end
 
-  # must create these users as authors in console for them to work in console/testing.
+15.times do
+  User.create ({
+    name: Faker::Name.name,
+    email: "#{SecureRandom.hex(3)}_#{Faker::Internet.email}",
+    password: SecureRandom.hex(10),
+    admin: false,
+    author: false
+  })
+end
 
-  authors.each do |author|
-    Author.create!(name: author[:name])
-  end
+50.times do
+  Book.create ({
+    title: Faker::Book.title,
+    description: Faker::HarryPotter.quote,
+    price: rand(5..20),
+    author: User.where(author:true).sample,
+    # book_cover: Faker::Placeholdit.image
+  })
+end
+# books = Book.all
 
-  books = [
-    { title: "All About Dogs",
-      description: "A dog is a mammal in the order Carnivora. Dogs were domesticated from wolves as recently as 15,000 years ago.",
-      price: 15.99
-    },
-    { title: "Dogs Are Life",
-      description: "It is estimated that for more than 12,000 years the dog has lived with humans as a hunting companion, protector and friend. A dog is one of the most popular pets in the world and has been referred to as ‘mans best friend’.",
-      price: 25.99
-    },
-    { title: "Cats are Better",
-      description: "Cats and Stuff’.",
-      price: 25.99
-    },
-    { title: "Pets Rule the World",
-      description: "Pets Give us Life.",
-      price: 25.99
-    },
-    { title: "Paws Save the World Yet Again",
-      description: "Why do we put our faith in humans?",
-      price: 25.99
-    }
-  ]
-
-  books.each do |book_attrs|
-    book = Book.new(book_attrs)
-    book.author = Author.all.sample
-    book.book_cover.attach(io: File.open(Rails.root.join('public/doge.png')), filename:"doge.png")
-    book.save!
-  end
+# books.each do |book|
+#   book.book_cover.attach(io: File.open(Rails.root.join('public/doge.png')), filename:"doge.png")
+# end
