@@ -2,6 +2,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import ReactTable from "react-table";
 import 'react-table/react-table.css'
+// EditButton below is just like a variable name
+import EditButton from './EditButton'
 
 class BooksIndex extends React.Component {
   render () {
@@ -13,8 +15,6 @@ class BooksIndex extends React.Component {
             {
               Header: "Cover",
               accessor: "book_cover"
-                // <div style="backgroundColor: red">
-                // </div>
             },
             {
               Header: "Title",
@@ -35,6 +35,12 @@ class BooksIndex extends React.Component {
             {
               Header: "Number of Sales",
               accessor: "sales"
+            },
+            {
+              Header: "Edit",
+              accessor: book => <EditButton book={book} />,
+              // unknown mystery
+              id: "id"
             }
             ]}
         />

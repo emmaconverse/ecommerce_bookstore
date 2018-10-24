@@ -13,9 +13,7 @@
   <body>
     <header>
       <div class="header-hero">
-        <h1 class="c-title c-title--hero c-title--center">STAYBOOKED</h1>
-        <p class="hero-caption">Photo by Paul Schafer on Unsplash</p>
-
+        <h1 class="c-title c-title--hero c-title--center">STAY BOOKED</h1>
     </div>
       <div class="c-section">
         <ul class="c-navigation">
@@ -38,12 +36,12 @@
             <li class="c-navigation__item">
               <%= link_to "Authors", authors_path, class: "c-navigation__link c-navigation__link--active" %>
             </li>
-            <li class="c-navigation__item c-navigation__item--push-right">
-              Hello <%= current_user.name %>!
+            <li class="c-navigation__item">
+              <%= link_to "Hello #{current_user.name}!", edit_user_registration_path, class: "c-navigation__link c-navigation__link--active" %>
                <%= image_tag current_user.avatar.variant(resize: "35x35") if current_user.avatar.attached? %>
             </li>
-            <li class="c-navigation__link">
-              <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+            <li class="c-navigation__item">
+              <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "c-navigation__link c-navigation__link--active" %>
             </li>
           <% else %>
             <li class="c-navigation__item c-navigation__item--push-right">
