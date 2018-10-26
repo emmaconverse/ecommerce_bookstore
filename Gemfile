@@ -17,6 +17,9 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'stripe'
 
+# active storage amazon
+gem 'aws-sdk-s3', require: false
+
 # devise
 gem 'devise'
 
