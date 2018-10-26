@@ -54,6 +54,6 @@ class BooksIndex extends React.Component {
 }
 
 BooksIndex.propTypes = {
-  greeting: PropTypes.string
+  // greeting: PropTypes.string
 };
 export default BooksIndex

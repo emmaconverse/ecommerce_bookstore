@@ -1,7 +1,7 @@
   <div class="c-section">
     <h1 class="c-title c-title--large">Books I Wrote</h1>
     <% @books.each do |book| %>
-      <% if current_user.name == book.author.name %>
+      <% if current_user.id == book.author.id %>
       <div class="c-input">
         <div class="book-index-container">
           <%= link_to book.title, admin_book_path(book), class: "c-title" %>
