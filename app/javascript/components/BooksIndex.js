@@ -4,6 +4,8 @@ import ReactTable from "react-table";
 import 'react-table/react-table.css'
 // EditButton below is just like a variable name
 import EditButton from './EditButton'
+import AuthorCell from './AuthorCell'
+import BookCover from './BookCover'
 
 class BooksIndex extends React.Component {
   render () {
@@ -14,7 +16,8 @@ class BooksIndex extends React.Component {
           columns={[
             {
               Header: "Cover",
-              accessor: "book_cover"
+              accessor: book_cover => <BookCover book_cover={book_cover} />,
+              id: "id"
             },
             {
               Header: "Title",
@@ -22,7 +25,8 @@ class BooksIndex extends React.Component {
             },
             {
               Header: "Author",
-              accessor: "author.name"
+              accessor: author => <AuthorCell author={name} />,
+              id: "id"
             },
             {
               Header: "Description",

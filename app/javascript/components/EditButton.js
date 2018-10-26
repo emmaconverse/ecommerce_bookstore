@@ -5,7 +5,7 @@ class EditButton extends React.Component {
     return (
       <a href={`/admin/books/${this.props.book.id}/edit`}>
         Edit
-        {this.props.book.title}
+
       </a>
     );
   }
