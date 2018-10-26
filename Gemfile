@@ -23,6 +23,8 @@ gem 'aws-sdk-s3', require: false
 # devise
 gem 'devise'
 
+gem 'sidekiq'
+
 # image processing with book_cover.variant
 gem 'image_processing', '~> 1.2'
 

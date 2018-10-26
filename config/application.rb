@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 
 
+
 module EcommerceBookstore
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -20,5 +21,8 @@ module EcommerceBookstore
 
     # # Use Vips for processing variants.
     # config.active_storage.variant_processor = :vips
+
+
+    config.active_job.queue_adapter = :sidekiq
   end
 end
