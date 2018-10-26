@@ -20,7 +20,7 @@
 //
 //
 // .c-navigation--no-border   - Remove the bottom border from links
-// 
+//
 // Styleguide: components.input.navigation
 
 .c-navigation {
@@ -54,6 +54,8 @@
       color: $c-grey-dark;
       border-bottom-color: $c-grey-light;
     }
+
+
 
     &--active,
     &:active,

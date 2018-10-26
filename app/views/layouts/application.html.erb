@@ -7,27 +7,41 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <script src="https://js.stripe.com/v3/"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application' %>
+    <%= stylesheet_pack_tag 'application' %>
   </head>
   <body>
     <header>
+      <div class="header-hero">
+        <h1 class="c-title c-title--hero c-title--center">STAY BOOKED</h1>
+    </div>
       <div class="c-section">
         <ul class="c-navigation">
           <% if current_user && current_user.admin? %>
             <li class="c-navigation__item">
-              <%= link_to "Books", admin_books_path, class: "c-navigation__link c-navigation__link--active" %>
+              <%= link_to "Manage Books", admin_books_path, class: "c-navigation__link c-navigation__link--active" %>
             </li>
-          <% else %>
             <li class="c-navigation__item">
               <%= link_to "Books", root_path, class: "c-navigation__link c-navigation__link--active" %>
             </li>
+            <li class="c-navigation__item">
+              <%= link_to "Create New Book", new_admin_book_path, class: "c-navigation__link c-navigation__link--active" %>
+            </li>
+          <% else %>
+            <li class="c-navigation__item">
+              <%= link_to "Home", root_path, class: "c-navigation__link c-navigation__link--active" %>
+            </li>
           <% end %>
           <% if current_user %>
-            <li class="c-navigation__item c-navigation__item--push-right">
-              Hello <%= current_user.name %>!
+            <li class="c-navigation__item">
+              <%= link_to "Authors", authors_path, class: "c-navigation__link c-navigation__link--active" %>
+            </li>
+            <li class="c-navigation__item">
+              <%= link_to "Hello #{current_user.name}!", edit_user_registration_path, class: "c-navigation__link c-navigation__link--active" %>
                <%= image_tag current_user.avatar.variant(resize: "35x35") if current_user.avatar.attached? %>
             </li>
-            <li class="c-navigation__link">
-              <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+            <li class="c-navigation__item">
+              <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "c-navigation__link c-navigation__link--active" %>
             </li>
           <% else %>
             <li class="c-navigation__item c-navigation__item--push-right">
@@ -42,7 +56,7 @@
     <p class="alert"><%= alert %></p>
     <%= yield %>
     <footer>
-      <h6>Stay Booked</h6>
+      <h3>Stay Booked</h3>
     </footer>
   </body>
 </html>
