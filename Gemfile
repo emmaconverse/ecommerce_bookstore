@@ -20,6 +20,8 @@ gem 'stripe'
 # devise
 gem 'devise'
 
+gem 'sidekiq'
+
 # image processing with book_cover.variant
 gem 'image_processing', '~> 1.2'
 

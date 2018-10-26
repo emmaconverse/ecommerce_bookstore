@@ -1,3 +1,5 @@
+require "sidekiq/web"
+
 Rails.application.routes.draw do
   get 'styleguide', to: "styleguides#styleguide"
   devise_for :users
@@ -16,6 +18,8 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'admin#books#index'
     resources :books, :authors
+
+    mount Sidekiq::Web => "/sidekiq"
   end
 
   namespace :author do
